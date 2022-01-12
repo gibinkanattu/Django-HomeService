@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px" style="background-image:url("mobile-phone-630412_960_720.jpg")" >
+    <h2>Requested Works</h2>
+
+        {% for object in object_list %}
+        <h5>Category: <font color="purple"> {{object.category}}</font></h5><br/>
+        <div class="jumbotron">
+            <font color="black">{{object.notice}}</font><br/>
+            <a href="{% url 'deletenotice' object.id %}"><input type="button" value="Delete"></a>
+        </div>
+            {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <div class="jumbotron">
+        <form action="" method="post">
+
+            {% csrf_token %}
+             {{form.as_p}}
+<h3>You are about to delete your profile</h3>
+                <input type="submit" class='btn btn-danger' value="Confirm">
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

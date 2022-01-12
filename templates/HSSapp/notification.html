@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <h1>Notifications</h1>
+    <div class="jumbotron">
+        {% for object in object_list %}
+        <a href="{% url 'notice2' object.id %}">{{object.customername}}</a><br/>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

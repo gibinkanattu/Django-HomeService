@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <h4>Update your Profile</h4>
+    <div class="jumbotron">
+        <form action="" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+
+                <input type="submit" class='btn btn-primary' value="Submit">
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "index3.html" %}
+    {% block body_block%}
+
+{% load staticfiles %}
+
+        <div>
+            <h3><font color="white "> Notificatons</font></h3>
+        </div>
+        {% for object in object_list %}
+<font color="white"> <a href="{% url 'notice2' object.id %}">{{object.customername}}</a></font><br/>
+        {% endfor %}
+
+    {% endblock %}

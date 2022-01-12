@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <div class="jumbotron">
+        <table border="0">
+       {% for object in object_list %}
+            <tr>
+                <td><h3>Phone: <font color="red" >{{object.phone}}</font></h3></td>
+                <td><a href="{% url 'phoneedit' object.id %}">Edit</a> </td>
+            </tr>
+            <tr>
+                <td><h3>Job: <font color="red"> {{object.job}}</font></h3></td>
+                <td><a href="{% url 'jobedit' object.id %}">Edit</a> </td>
+            </tr>
+            <tr><td><a href="{% url 'profiledelete' object.id %}"><input type="button" value="Delete Profile"></a> </td></tr>
+        {% endfor %}
+            </table>
+        <br/>
+        <a href="{% url 'profile' %}"><input type="button" class="btn btn-primary" value="Add New Profile"></a>
+
+    </div>
+</div>
+
+
+{% endblock %}

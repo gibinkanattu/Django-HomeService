@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <div class="jumbotron">
+        {% for object_list in object_list %}
+        <h3>State: <font color="green">{{object_list.state}}</font></h3></br>
+        <h3>District: <font color="green">{{object_list.district}}</font></h3></br>
+        <h3>Area: <font color="green">{{object_list.area}}</font></h3></br>
+        <h3>Place: <font color="green">{{object_list.place}}</font></h3></br>
+        <a href="{% url 'locationupdate' object_list.id %}"><input type="button" value="Change Location"></a>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

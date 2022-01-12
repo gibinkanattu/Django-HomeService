@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+{% extends "index2.html" %}
+    {% block body_block%}
+{% load staticfiles %}
+
+<div class="container" style="padding-top:150px">
+    <div class="jumbotron">
+        <form action="" method="post">
+            {{form.as_p}}
+            {% csrf_token %}
+<h3>Are you sure to update</h3>
+                <input type="submit" class='btn btn-danger' value="Confirm">
+
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}
