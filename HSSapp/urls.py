@@ -15,6 +15,7 @@ urlpatterns = [
     path('', lambda request: render(request, 'home.html'), name='home'),
     path('index', lambda request: render(request, 'index.html'), name='index'),
     path('home', lambda request: render(request, 'home.html'), name='home'),
+    path('about', lambda request: render(request, 'about.html'), name='about'),
     path('mypage', views.mypagenotice, name='mypage'),
     path('search', views.search, name='search'),
     path('filter', views.sort, name='filter'),

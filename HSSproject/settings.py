@@ -10,7 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
+from configparser import SectionProxy
 import os
+import secrets
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,11 +25,12 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'g1av2xt%1lbtn8_k(-c$a5op14m99mx3h@yk1x1ow#0foaz!ka'
-
+# SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+# DEBUG = os.getenv('DEBUG')
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -81,6 +84,15 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     # 'NAME': os.environ.get('POSTGRES_NAME'),
+    #     'NAME':os.path.join(BASE_DIR, 'db.sqlite3'),
+    #     # 'USER': os.environ.get('POSTGRES_USER'),
+    #     # 'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
+    #     # 'HOST': 'db',
+    #     # 'PORT': 5432,
+    # }
 }
 
 
@@ -118,7 +130,7 @@ USE_TZ = True
 
     # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-
+STATIC_ROOT = '/static/'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
 LOGIN_URL='/'
